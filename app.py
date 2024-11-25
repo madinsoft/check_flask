@@ -10,12 +10,13 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     # Informations de connexion
-    hostname = getenv('hostname')
-    port = getenv('hostname', '5432')
-    username = getenv('username')
-    password = getenv('password')
-    database = getenv('database')
+    hostname = getenv('HOSTNAME')
+    port = getenv('PORT', '5432')
+    username = getenv('USERNAME')
+    password = getenv('PASSWORD')
+    database = getenv('DATABASE')
 
+    print(f'{hostname}:{port} {username} {password} {database}')
     # Établir la connexion
     try:
         connection = psycopg2.connect(
