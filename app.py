@@ -42,7 +42,7 @@ def hello():
     except Exception as error:
         print(f"Erreur lors de la connexion à PostgreSQL : {error}")
 
-    return f"Hello World! DB Version : {db_version}"
+    return f"Test new container : Hello World! DB Version : {db_version}"
 
 if __name__ == '__main__':
     port = getenv('FLASK_PORT') or 8080
