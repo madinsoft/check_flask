@@ -7,24 +7,21 @@ from psycopg2 import sql
 
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def hello():
     # Informations de connexion
-    hostname = getenv('HOSTNAME')
-    port = getenv('PORT', '5432')
-    username = getenv('USERNAME')
-    password = getenv('PASSWORD')
-    database = getenv('DATABASE')
+    hostname = getenv("HOSTNAME")
+    port = getenv("PORT", "5432")
+    username = getenv("USERNAME")
+    password = getenv("PASSWORD")
+    database = getenv("DATABASE")
 
-    print(f'{hostname}:{port} {username} {password} {database}')
+    print(f"{hostname}:{port} {username} {password} {database}")
     # Établir la connexion
     try:
         connection = psycopg2.connect(
-            host=hostname,
-            port=port,
-            user=username,
-            password=password,
-            dbname=database
+            host=hostname, port=port, user=username, password=password, dbname=database
         )
         cursor = connection.cursor()
         print("Connection to PostgreSQL success")
@@ -42,10 +39,11 @@ def hello():
     except Exception as error:
         print(f"Erreur lors de la connexion à PostgreSQL : {error}")
 
-    return f"My container : Hello World! DB Version : {db_version}"
+    return f"Change My container : Hello World! DB Version : {db_version}"
 
-if __name__ == '__main__':
-    port = getenv('FLASK_PORT') or 8080
+
+if __name__ == "__main__":
+    port = getenv("FLASK_PORT") or 8080
     port = int(port)
 
-    app.run(port=port,host='0.0.0.0')
+    app.run(port=port, host="0.0.0.0")
