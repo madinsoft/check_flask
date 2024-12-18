@@ -39,7 +39,7 @@ def hello():
     except Exception as error:
         print(f"Erreur lors de la connexion à PostgreSQL : {error}")
 
-    return f"Change My container : Hello World! DB Version : {db_version}"
+    return f" My container : Hello World! DB Version : {db_version}"
 
 
 if __name__ == "__main__":
